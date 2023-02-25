@@ -27,7 +27,4 @@ buildSimplexTable inequations toMaximize = leftSide Mat.<|> helperVariables Mat.
     helperVariables = Mat.setSize 0 (inequationCount + 1) inequationCount $ Mat.identity inequationCount
 
 fill :: Int -> a -> [a] -> [a]
-fill len val toFill = take len $ toFill ++ repeat val 
-
-identityMatrix :: Num a => Int -> [[a]]
-identityMatrix n = [[if y == x then 1 else 0 | y <- [1..n]] | x <- [1..n]]
+fill len val toFill = take len $ toFill ++ repeat val
