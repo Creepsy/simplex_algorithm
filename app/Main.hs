@@ -13,7 +13,7 @@ main = print (simplex [([1, 2], 1000), ([3, 4], 3500)] [5, 20])
 simplex :: (Fractional a, Ord a, Eq a) => [Inequation a] -> Term a -> [a]
 simplex inequations toMaximize = extractSolution finalTable where
     inequationCount = length inequations
-    isFinished table =Vec.all (>=0) . Mat.getRow (Mat.nrows table) $ table
+    isFinished table = Vec.all (>=0) . Mat.getRow (Mat.nrows table) $ table
 
     initialTable = buildSimplexTable inequations toMaximize
     finalTable = head . dropWhile (not . isFinished) . iterate simplexStep $ initialTable
